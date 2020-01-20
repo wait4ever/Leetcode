@@ -10,32 +10,31 @@
 package LeetCode;
 
 public class N7Reverse {
+    private static int solution(int x){
+
+        String s = Integer.toString(x);
+        s = new StringBuilder(s).reverse().toString();
+        int result = 0;
+        if(x<0){
+            try {
+                result = Integer.valueOf(s.substring(0, s.length() - 1))*-1;
+            } catch (Exception e){
+
+            }
+        }else{
+            try {
+                result = Integer.valueOf(s);
+            } catch (Exception e){
+            }
+        }
+         return result;
+
+    }
     public static void main(String[] args) {
-        int x = -123;
+        int x = 120;
 
-        // first version -- too slow.
-
-//        String s = Integer.toString(x);
-//        s = new StringBuilder(s).reverse().toString();
-//        int result = 0;
-//        if(x<0){
-//            try {
-//                result = Integer.valueOf(s.substring(0, s.length() - 1))*-1;
-//            } catch (Exception e){
-//
-//            }
-//
-//        }else{
-//            try {
-//                result = Integer.valueOf(s);
-//            } catch (Exception e){
-//            }
-//        }
-//        System.out.println(result);
-
-        // return result;
-
-        // second version
+        //first version -- too slow.
+        //System.out.println(solution(x));
 
         int pop;
         int ans = 0;

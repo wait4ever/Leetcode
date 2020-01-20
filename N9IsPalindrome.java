@@ -8,26 +8,36 @@
 package LeetCode;
 
 public class N9IsPalindrome {
-    //未完成
-    public static void main(String[] args) {
-        //但是这样有零的数字就出事了
-        int x = 100002001;
+    private static boolean solution1(int x){
+
+        if(x<0){
+            return false;
+        }
+
         int div = 1;
         while(x/div>=10)
             div = div*10;
-        while (x>9){
-            int head = x/div;
-            int tail = x%10;
+
+        while (x>0){
+            int head = x/div;  //取首位
+            int tail = x%10;   //取末位
             if(head!=tail){
-                System.out.println("false");
-                return;
+                return false;
             }
             x = (x%div)/10;
             div = div/100;
 
         }
 
-        System.out.println("true");
+        return true;
+
+    }
+    public static void main(String[] args) {
+
+
+        // 尽管被求余运算后，0不会被保存，但是由于 21除了一个大于21的值，所以也可"看作该位为0"。
+        System.out.println(solution1(1000021));
+
 
     }
 }
